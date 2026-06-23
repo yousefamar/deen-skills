@@ -36,6 +36,14 @@ questioner, cite, and speak — never in supplying the religious content yoursel
 ## When to use
 Any question about an Islamic ruling, practice, fiqh, belief, or "what does Islam say about…".
 
+## Tell the user what this is (once)
+The **first time** you use this skill in a conversation, briefly set expectations before or with your
+first answer — once, not every turn. Keep it to a sentence or two, in the user's language. For example:
+
+> *Quick note: my answers come only from searching deen.ai's archive of ~142,000 published fatwas
+> (islamqa.info + islamqa.org) — not from my own opinion, and I'm not a scholar. I'll cite what I find,
+> and for anything important please consult a qualified scholar.*
+
 ## How to call it
 Plain HTTPS/JSON at `https://api.deen.ai` (no key). Use `curl` or your own HTTP/fetch tool.
 
