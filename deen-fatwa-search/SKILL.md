@@ -4,40 +4,55 @@ description: Search 142,780 Islamic rulings (fatwas) from islamqa.info and islam
 license: MIT
 metadata:
   author: deen.ai
-  version: "1.0"
-compatibility: Requires python3 and outbound HTTPS to api.deen.ai
+  version: "2.0"
+compatibility: Requires the ability to make HTTPS requests (curl, or your environment's HTTP/fetch tool) to api.deen.ai
 ---
 
 # deen.ai fatwa search
 
-A retrieval tool over a corpus of **142,780 fatwas** (islamqa.info + the islamqa.org
-aggregator of ~44 fatwa sites). It does **lexical keyword search** — it does not answer;
-**you** answer, grounded in what it returns.
+A retrieval tool over **142,780 fatwas** (islamqa.info + the islamqa.org aggregator of ~44
+fatwa sites). It does **lexical keyword search** — it does not answer; **you** answer,
+grounded in what it returns.
+
+It's a plain HTTPS/JSON API at **`https://api.deen.ai`** (no key, no auth). Call it with
+`curl`, or whatever HTTP/fetch capability you have — there is nothing to install.
 
 ## When to use
 Any question about an Islamic ruling, practice, or fiqh where citing real fatwas matters.
 
+## Endpoints
+
+**Search** — `POST /search`, JSON body `{ "query", "k"?, "filters"? }`:
+```bash
+curl -s https://api.deen.ai/search -H 'content-type: application/json' \
+  -d '{"query":"music instruments wedding","k":5}'
+```
+`k` = number of results (default 5, max 20). `filters` (all optional):
+`{"madhab":"Hanafi Fiqh","source":"Askimam.org","lang":"ar"}`.
+Returns ranked `results[]`, each: `id, title, url, source, madhab, scholars[], lang, score, snippet`
+(higher `score` = more relevant).
+
+**Get full text** — `GET /fatwa/{id}` (use an `id` from a search result):
+```bash
+curl -s https://api.deen.ai/fatwa/94459
+```
+Returns the full record incl. `body` (the complete answer).
+
 ## Workflow
-1. **Search** with concise keywords (not a full sentence):
-   ```
-   scripts/deen.py search "music instruments wedding" -k 5
-   ```
-2. **Read the snippets/scores.** If results look weak (low scores, off-topic), **reformulate** —
-   try synonyms, Islamic terms (e.g. `wudu`/`ablution`, `salah`/`prayer`), or for an Arabic
-   question search Arabic terms (or translate to English) since the corpus is bilingual.
-3. **Fetch full text** for the best hit(s) before quoting a ruling:
-   ```
-   scripts/deen.py get 94459
-   ```
-4. **Answer grounded + cited.** Quote/paraphrase only what the fatwas say, link the `url`, and
+1. **Search** with concise keywords (not a full sentence).
+2. **Read the snippets and scores.** If results look weak (low/flat scores, off-topic),
+   **reformulate** — try synonyms or Islamic terms (`wudu`/`ablution`, `salah`/`prayer`); for an
+   Arabic question, search Arabic terms or translate to English (the corpus is bilingual).
+3. **Fetch the full text** (`GET /fatwa/{id}`) for the best hit(s) before quoting a ruling.
+4. **Answer grounded + cited** — quote/paraphrase only what the fatwas say, link the `url`, and
    **name the source and madhab** of each ruling.
 
-## Filters (optional)
-- `--madhab "Hanafi Fiqh"` (also `Shafi'i Fiqh`, `Maliki Fiqh`, `Hanbali Fiqh`)
-- `--source "Askimam.org"` (one of ~44 sites; e.g. Muftionline.co.za, Seekersguidance.org)
-- `--lang ar` | `--lang en`
+## Filters
+- `madhab`: `Hanafi Fiqh` · `Shafi'i Fiqh` · `Maliki Fiqh` · `Hanbali Fiqh`
+- `source`: one of ~44 sites (e.g. `Askimam.org`, `Muftionline.co.za`, `Seekersguidance.org`)
+- `lang`: `ar` · `en`
 
-Use `--madhab` when the user follows a specific school. `-k` caps results (default 5, max 20).
+Use `madhab` when the user follows a specific school.
 
 ## Critical: transparency about tradition
 The corpus mixes scholarly traditions — **islamqa.info is Salafi-leaning; the islamqa.org docs
@@ -48,4 +63,4 @@ are overwhelmingly Deobandi/Hanafi**. Rulings can differ by madhab. So:
 - You are surfacing scholarship, not issuing a fatwa — encourage the user to consult a qualified
   scholar for binding rulings.
 
-See [REFERENCE.md](references/REFERENCE.md) for the raw API contract.
+See [REFERENCE.md](references/REFERENCE.md) for the full API contract.

@@ -32,19 +32,18 @@ mkdir -p .agents/skills && cp -r deen-skills/deen-fatwa-search .agents/skills/
 Then ask your agent an Islamic-ruling question — it discovers the skill by its description
 and activates it automatically.
 
-**Requirements:** `python3` (standard library only — no pip installs) and outbound HTTPS to
-`api.deen.ai`. Point elsewhere with `DEEN_API=<url>`.
+**No install/dependencies.** The skill is pure documentation; the agent calls the public API
+directly with `curl` or its own HTTP/fetch tool.
 
-## Try the script directly
+## Call the API directly
 ```bash
-deen-fatwa-search/scripts/deen.py search "is music haram" --madhab "Hanafi Fiqh"
-deen-fatwa-search/scripts/deen.py get 94459
-deen-fatwa-search/scripts/deen.py --help
-```
+curl -s https://api.deen.ai/search -H 'content-type: application/json' \
+  -d '{"query":"is music haram","filters":{"madhab":"Hanafi Fiqh"}}'
 
-## API
+curl -s https://api.deen.ai/fatwa/94459
+```
 See [`deen-fatwa-search/references/REFERENCE.md`](deen-fatwa-search/references/REFERENCE.md)
-for the raw HTTP contract.
+for the full HTTP contract.
 
 ## License
 MIT — see [LICENSE](LICENSE).
