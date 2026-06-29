@@ -73,8 +73,11 @@ Understand the person *just enough* to target the search and pick which results 
 ### 2. Search thoroughly before answering
 - Search **multiple angles**; never answer off one weak hit. Reformulate with synonyms and Islamic
   terms, and transliteration variants (wudu/wudhu, salah/salat).
-- Search **both languages**: the best fatwa may be in the other. For an Arabic question also search
-  English and vice-versa; translate the query to improve recall.
+- **The corpus is English and Arabic ONLY.** Whatever language the user writes in, you MUST translate
+  their question into English (and Arabic when it may help) before searching. NEVER search in a language
+  the corpus does not contain (Urdu, Hindi, Bengali, Indonesian, French, etc.), you will find nothing and
+  wrongly conclude there is no fatwa. Search **both** English and Arabic, the best fatwa may be in either;
+  reformulate and translate the query to improve recall. Then answer the user in their own language (see step 5).
 - **Read the full fatwa (`GET /fatwa/{id}`) before quoting** — snippets mislead.
 - Cross-check across sources and madhabs to see the spectrum; do not cherry-pick one result.
 
