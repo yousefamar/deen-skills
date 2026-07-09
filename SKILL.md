@@ -112,7 +112,9 @@ Understand the person *just enough* to target the search and pick which results 
   something relevant.
 
 ### 4. Cite everything
-- Every point ties to its fatwa: name the **source, madhab, and scholar** and link the **`url`**.
+- Every point ties to its fatwa: name the **source, madhab, and scholar** and paste the **full `url`**
+  from the result verbatim (the whole link, e.g. `https://daruliftabirmingham.co.uk/...`), NOT a bare
+  domain like "daruliftabirmingham.co.uk". The clickable link back to the original is the whole point.
 - Quote Qur'an/hadith only as they appear in the result, with the reference the result gives.
 - Send salawat on the Prophet ﷺ when naming him, as the sources do.
 - Close with humility as the corpus does (*wa Allāhu aʿlam*).
