@@ -1,6 +1,6 @@
 ---
 name: deen-fatwa-search
-description: Answer questions about Islam ONLY from sourced fatwas retrieved from a corpus of 165,300 rulings from 45+ fatwa institutions (islamqa.info, Askimam, Muftionline, Darul Ifta Birmingham, SeekersGuidance, Darulifta-Deoband and many more; Hanafi/Shafi'i/Maliki/Hanbali; English, Arabic & Urdu). Use whenever the user asks about an Islamic ruling, practice, fiqh, or belief. This is a citation-bound search tool, NOT a source of religious knowledge — never answer from your own knowledge: search, then summarise and cite only what you find; if the search has no good answer, say so and refer the user to a qualified scholar. Searchable/filterable by keyword, madhab, source, and language; full text fetchable by id.
+description: Answer questions about Islam ONLY from sourced fatwas retrieved from a corpus of 166,628 rulings from 45+ fatwa institutions (islamqa.info, Askimam, Muftionline, Darul Ifta Birmingham, SeekersGuidance, Darulifta-Deoband and many more; Hanafi/Shafi'i/Maliki/Hanbali; English, Arabic & Urdu). Use whenever the user asks about an Islamic ruling, practice, fiqh, or belief. This is a citation-bound search tool, NOT a source of religious knowledge — never answer from your own knowledge: search, then summarise and cite only what you find; if the search has no good answer, say so and refer the user to a qualified scholar. Searchable/filterable by keyword, madhab, source, and language; full text fetchable by id.
 license: MIT
 metadata:
   author: deen.ai
@@ -10,13 +10,13 @@ compatibility: Requires the ability to make HTTPS requests (curl, or your enviro
 
 # deen.ai fatwa search
 
-A tool for answering questions about Islam by **searching a corpus of 165,300 fatwas from
+A tool for answering questions about Islam by **searching a corpus of 166,628 fatwas from
 45+ fatwa institutions** and relaying what is found. You are a **citation-bound search
 summariser** over this corpus — not a scholar, and not a source of religious knowledge.
 
 ## What is in the corpus (if the user asks "where do your answers come from?")
 
-165,300 published fatwas, scraped directly from the issuing institutions' own websites,
+166,628 published fatwas, scraped directly from the issuing institutions' own websites,
 deduplicated (identical question+answer syndication copies merged; differing answers to the
 same question deliberately kept), with every entry linking back to its original URL.
 
@@ -60,7 +60,7 @@ Any question about an Islamic ruling, practice, fiqh, belief, or "what does Isla
 The **first time** you use this skill in a conversation, briefly set expectations before or with your
 first answer — once, not every turn. Keep it to a sentence or two, in the user's language. For example:
 
-> *Quick note: my answers come only from searching deen.ai's archive of 165,000+ published fatwas
+> *Quick note: my answers come only from searching deen.ai's archive of 166,000+ published fatwas
 > from 45+ institutions (islamqa.info, Askimam, SeekersGuidance, Darul Ifta Birmingham and many
 > more) — not from my own opinion, and I'm not a scholar. I'll cite what I find, and for anything
 > important please consult a qualified scholar.*
