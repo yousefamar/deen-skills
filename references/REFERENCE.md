@@ -34,10 +34,10 @@ Returns the full record:
 ```
 
 ## `GET /health`
-`{ "ok": true, "service": "deen-fatwa-search", "count": 167769 }`
+`{ "ok": true, "service": "deen-fatwa-search", "count": 167847 }`
 
 ## Corpus
-167,769 fatwas scraped directly from 45+ fatwa institutions' own sites, each linking back to
+167,847 fatwas scraped directly from 45+ fatwa institutions' own sites, each linking back to
 its original URL. Languages: en 122,539 / ar 35,403 / ur 7,358. Madhab-tagged where the source
 states it (Hanafi 113,911, Shafi'i 6,049, Hanbali 376, Maliki 277; islamqa.info is untagged).
 Largest sources: islamqa.info 44,633 · muftionline 25,331 · askimam 24,696 ·
